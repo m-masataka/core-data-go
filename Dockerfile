@@ -29,7 +29,6 @@ ARG GOOS=linux
 ARG GOARCH=amd64
 ARG DATA_EXE=$CORE_DATA_GO
 
-RUN go get -d
 RUN GOOS=$GOOS GOARCH=$GOARCH go build --ldflags '-extldflags "-lstdc++ -static -lsodium -static -lzmq"' -o $DATA_EXE
 
 #Next image - Copy built Go binary into new workspace
